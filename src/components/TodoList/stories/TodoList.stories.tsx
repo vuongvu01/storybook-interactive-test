@@ -26,10 +26,8 @@ AddTodos.play = async ({ canvasElement }) => {
   const addButton = await canvas.findByRole("button", { name: "Add" });
 
   for (let i = 0; i < todos.length; i++) {
-    userEvent.type(inputText, todos[i]);
-    await waitFor(() => {
-      userEvent.click(addButton);
-    });
+    await userEvent.type(inputText, todos[i]);
+    await userEvent.click(addButton);
   }
 
   expect(canvas.getByText("3 tasks / 0 done")).toBeInTheDocument();
@@ -53,9 +51,7 @@ CompleteTodos.play = async ({ canvasElement }) => {
 
   for (let i = 0; i < doneTasks.length; i++) {
     const task = await canvas.findByLabelText(doneTasks[i]);
-    await waitFor(() => {
-      userEvent.click(task);
-    });
+    await userEvent.click(task);
   }
 
   expect(canvas.getByText("3 tasks / 2 done")).toBeInTheDocument();
