@@ -19,11 +19,15 @@
   opacity: 0.4;
 }
 
-.section__row__delete {
+.row__delete {
   cursor: pointer;
   float: right;
 }
 
-.section__row__delete:hover {
+.row__delete:hover {
   opacity: 0.4;
+}
+
+.section__taskinfo {
+  opacity: 0.8;
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FC } from "react";
 import {
   Button,
   Typography,
@@ -13,17 +13,23 @@ import { generateId } from "@deliveryhero/armor-system";
 import { CancelIcon } from "@deliveryhero/armor-icons";
 import "./index.css";
 
-type TodoType = {
+type PropsType = {
+  data?: TodoType[];
+};
+
+export type TodoType = {
   id: string;
   name: string;
   isDone: boolean;
 };
 
-function TodoList() {
+const TodoList: FC<PropsType> = ({ data }) => {
   const [inputText, setInputText] = useState<string>("");
-  const [todos, setTodos] = useState<TodoType[]>([]);
+  const [todos, setTodos] = useState<TodoType[]>(data || []);
 
   const addNewTodo = (name: string) => {
+    if (!name) return;
+
     setTodos((todoList) => [
       ...todoList,
       {
@@ -80,18 +86,18 @@ function TodoList() {
             <Checkbox onChange={() => toggleTodo(id)} label={name} />
             <CancelIcon
               onClick={() => deleteTodo(id)}
-              className="section__row__delete"
+              className="row__delete"
             />
           </StackItem>
         ))}
       </Stack>
-      <Typography marginTop={2}>
+      <Typography marginTop={2} className="section__taskinfo">
         {todos.length
           ? `${numTask} tasks / ${doneTask} done`
           : "You have no tasks to display"}
       </Typography>
     </div>
   );
-}
+};
 
 export default TodoList;
