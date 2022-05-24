@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
-import { Button } from "@deliveryhero/armor";
+import TodoList from "./components/TodoList";
 import "./App.css";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
         >
           Learn React
         </a>
-        <Button>Test</Button>
+        <TodoList />
       </header>
     </div>
   );

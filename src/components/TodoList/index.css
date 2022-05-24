@@ -1,0 +1,29 @@
+.container {
+  text-align: center;
+  margin: 0 auto;
+  width: 500px
+}
+
+.section__add {
+  width: 100%;
+}
+
+.section__row {
+  width: 100%;
+  /* border: 1px solid; */
+  padding-top: 4px;
+  text-align: left;
+}
+
+.section__row.done .Checkbox-Label {
+  opacity: 0.4;
+}
+
+.section__row__delete {
+  cursor: pointer;
+  float: right;
+}
+
+.section__row__delete:hover {
+  opacity: 0.4;
+}
