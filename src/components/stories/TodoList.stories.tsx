@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { within, userEvent, waitFor } from "@storybook/testing-library";
+import { within, userEvent } from "@storybook/testing-library";
 import { expect } from "@storybook/jest";
-import TodoList, { TodoType } from "..";
+import TodoList, { TodoType } from "../TodoList";
 
 export default {
   title: "Example/TodoList",

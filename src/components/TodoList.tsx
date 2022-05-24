@@ -12,7 +12,7 @@ import {
 } from "@deliveryhero/armor";
 import { generateId } from "@deliveryhero/armor-system";
 import { CancelIcon } from "@deliveryhero/armor-icons";
-import "./index.css";
+import "./styles.css";
 
 type PropsType = {
   data?: TodoType[];
