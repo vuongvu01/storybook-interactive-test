@@ -93,7 +93,7 @@ const TodoList: FC<PropsType> = ({ data }) => {
       </Stack>
       <Typography marginTop={2} className="section__taskinfo">
         {todos.length
-          ? `${numTask} tasks / ${doneTask} done`
+          ? `${numTask} total / ${doneTask} done`
           : "You have no tasks to display"}
       </Typography>
     </div>
