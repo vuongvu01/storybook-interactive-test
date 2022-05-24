@@ -26,7 +26,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "test-storybook:cross-browser": "test-storybook --browsers chromium firefox webkit",
+    "test-storybook:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"yarn build-storybook --quiet && npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook\""
   },
   "eslintConfig": {
     "extends": [
@@ -70,6 +72,7 @@
     "@storybook/test-runner": "^0.1.0",
     "@storybook/testing-library": "^0.0.11",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "jest-image-snapshot": "^4.5.1",
     "prop-types": "^15.8.1",
     "webpack": "^5.72.1"
   }
