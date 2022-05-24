@@ -8,6 +8,7 @@ import {
   Checkbox,
   Stack,
   StackItem,
+  IconButton,
 } from "@deliveryhero/armor";
 import { generateId } from "@deliveryhero/armor-system";
 import { CancelIcon } from "@deliveryhero/armor-icons";
@@ -84,10 +85,9 @@ const TodoList: FC<PropsType> = ({ data }) => {
         {todos.map(({ id, name, isDone }) => (
           <StackItem key={id} className={`section__row ${isDone && "done"}`}>
             <Checkbox onChange={() => toggleTodo(id)} label={name} />
-            <CancelIcon
-              onClick={() => deleteTodo(id)}
-              className="row__delete"
-            />
+            <IconButton className="row__delete" onClick={() => deleteTodo(id)}>
+              <CancelIcon />
+            </IconButton>
           </StackItem>
         ))}
       </Stack>

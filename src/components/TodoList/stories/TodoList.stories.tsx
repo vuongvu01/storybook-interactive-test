@@ -30,7 +30,7 @@ AddTodos.play = async ({ canvasElement }) => {
     await userEvent.click(addButton);
   }
 
-  expect(canvas.getByText("3 tasks / 0 done")).toBeInTheDocument();
+  await expect(canvas.getByText("3 tasks / 0 done")).toBeInTheDocument();
 };
 
 const defaultTodos: TodoType[] = [
@@ -54,5 +54,23 @@ CompleteTodos.play = async ({ canvasElement }) => {
     await userEvent.click(task);
   }
 
-  expect(canvas.getByText("3 tasks / 2 done")).toBeInTheDocument();
+  await expect(canvas.getByText("3 tasks / 2 done")).toBeInTheDocument();
+};
+
+export const DeleteTodos = Template.bind({});
+DeleteTodos.args = {
+  data: defaultTodos,
+};
+
+DeleteTodos.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  const deleteButtons = await canvas.findAllByRole("button", { name: "" });
+
+  // Delete 2/3 tasks
+  for (let i = 0; i < deleteButtons.length - 1; i++) {
+    await userEvent.click(deleteButtons[i]);
+  }
+
+  await expect(canvas.getByText("1 tasks / 0 done")).toBeInTheDocument();
 };
