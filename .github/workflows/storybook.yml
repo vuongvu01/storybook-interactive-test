@@ -1,7 +1,5 @@
 name: Build and Deploy
-on:
-  push:
-    paths: ["stories/**", "src/components/**"]
+on: push
 jobs:
   build-and-deploy:
     env:
