@@ -8,6 +8,7 @@ module.exports = {
   ],
   features: {
     interactionsDebugger: true,
+    buildStoriesJson: true,
   },
   framework: "@storybook/react",
   core: {
